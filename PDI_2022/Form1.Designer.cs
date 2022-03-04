@@ -49,12 +49,21 @@ namespace PDI_2022
             this.luminosityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.averageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lightnessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.halfToneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.halfTone1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.efeitosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.negativoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.espelhamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.destinoCheckBox = new System.Windows.Forms.CheckBox();
+            this.halfTone2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.origemPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.destinoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xTrackBar)).BeginInit();
@@ -188,7 +197,8 @@ namespace PDI_2022
             // filtrosToolStripMenuItem
             // 
             this.filtrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.escalasDeCinzaToolStripMenuItem});
+            this.escalasDeCinzaToolStripMenuItem,
+            this.halfToneToolStripMenuItem});
             this.filtrosToolStripMenuItem.Name = "filtrosToolStripMenuItem";
             this.filtrosToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.filtrosToolStripMenuItem.Text = "Filtros";
@@ -200,7 +210,7 @@ namespace PDI_2022
             this.averageToolStripMenuItem,
             this.lightnessToolStripMenuItem});
             this.escalasDeCinzaToolStripMenuItem.Name = "escalasDeCinzaToolStripMenuItem";
-            this.escalasDeCinzaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.escalasDeCinzaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.escalasDeCinzaToolStripMenuItem.Text = "Escalas de Cinza";
             // 
             // luminosityToolStripMenuItem
@@ -224,6 +234,46 @@ namespace PDI_2022
             this.lightnessToolStripMenuItem.Text = "Lightness";
             this.lightnessToolStripMenuItem.Click += new System.EventHandler(this.lightnessToolStripMenuItem_Click);
             // 
+            // halfToneToolStripMenuItem
+            // 
+            this.halfToneToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.halfTone1ToolStripMenuItem,
+            this.halfTone2ToolStripMenuItem});
+            this.halfToneToolStripMenuItem.Name = "halfToneToolStripMenuItem";
+            this.halfToneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.halfToneToolStripMenuItem.Text = "HalfTone";
+            // 
+            // halfTone1ToolStripMenuItem
+            // 
+            this.halfTone1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rToolStripMenuItem,
+            this.gToolStripMenuItem,
+            this.bToolStripMenuItem});
+            this.halfTone1ToolStripMenuItem.Name = "halfTone1ToolStripMenuItem";
+            this.halfTone1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.halfTone1ToolStripMenuItem.Text = "HalfTone 1";
+            // 
+            // rToolStripMenuItem
+            // 
+            this.rToolStripMenuItem.Name = "rToolStripMenuItem";
+            this.rToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rToolStripMenuItem.Text = "R";
+            this.rToolStripMenuItem.Click += new System.EventHandler(this.rToolStripMenuItem_Click);
+            // 
+            // gToolStripMenuItem
+            // 
+            this.gToolStripMenuItem.Name = "gToolStripMenuItem";
+            this.gToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gToolStripMenuItem.Text = "G";
+            this.gToolStripMenuItem.Click += new System.EventHandler(this.gToolStripMenuItem_Click);
+            // 
+            // bToolStripMenuItem
+            // 
+            this.bToolStripMenuItem.Name = "bToolStripMenuItem";
+            this.bToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bToolStripMenuItem.Text = "B";
+            this.bToolStripMenuItem.Click += new System.EventHandler(this.bToolStripMenuItem_Click);
+            // 
             // efeitosToolStripMenuItem
             // 
             this.efeitosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -236,7 +286,7 @@ namespace PDI_2022
             // negativoToolStripMenuItem
             // 
             this.negativoToolStripMenuItem.Name = "negativoToolStripMenuItem";
-            this.negativoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.negativoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.negativoToolStripMenuItem.Text = "Negativo";
             this.negativoToolStripMenuItem.Click += new System.EventHandler(this.negativoToolStripMenuItem_Click);
             // 
@@ -246,20 +296,20 @@ namespace PDI_2022
             this.verticalToolStripMenuItem,
             this.horizontalToolStripMenuItem});
             this.espelhamentoToolStripMenuItem.Name = "espelhamentoToolStripMenuItem";
-            this.espelhamentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.espelhamentoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.espelhamentoToolStripMenuItem.Text = "Espelhamento";
             // 
             // verticalToolStripMenuItem
             // 
             this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
-            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.verticalToolStripMenuItem.Text = "Vertical";
             this.verticalToolStripMenuItem.Click += new System.EventHandler(this.verticalToolStripMenuItem_Click);
             // 
             // horizontalToolStripMenuItem
             // 
             this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
-            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.horizontalToolStripMenuItem.Text = "Horizontal";
             this.horizontalToolStripMenuItem.Click += new System.EventHandler(this.horizontalToolStripMenuItem_Click);
             // 
@@ -272,6 +322,37 @@ namespace PDI_2022
             this.destinoCheckBox.TabIndex = 17;
             this.destinoCheckBox.Text = "Usar imagem de destino";
             this.destinoCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // halfTone2ToolStripMenuItem
+            // 
+            this.halfTone2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rToolStripMenuItem1,
+            this.gToolStripMenuItem1,
+            this.bToolStripMenuItem1});
+            this.halfTone2ToolStripMenuItem.Name = "halfTone2ToolStripMenuItem";
+            this.halfTone2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.halfTone2ToolStripMenuItem.Text = "HalfTone 2";
+            // 
+            // rToolStripMenuItem1
+            // 
+            this.rToolStripMenuItem1.Name = "rToolStripMenuItem1";
+            this.rToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.rToolStripMenuItem1.Text = "R";
+            this.rToolStripMenuItem1.Click += new System.EventHandler(this.rToolStripMenuItem1_Click);
+            // 
+            // gToolStripMenuItem1
+            // 
+            this.gToolStripMenuItem1.Name = "gToolStripMenuItem1";
+            this.gToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.gToolStripMenuItem1.Text = "G";
+            this.gToolStripMenuItem1.Click += new System.EventHandler(this.gToolStripMenuItem1_Click);
+            // 
+            // bToolStripMenuItem1
+            // 
+            this.bToolStripMenuItem1.Name = "bToolStripMenuItem1";
+            this.bToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.bToolStripMenuItem1.Text = "B";
+            this.bToolStripMenuItem1.Click += new System.EventHandler(this.bToolStripMenuItem1_Click);
             // 
             // Form1
             // 
@@ -335,6 +416,15 @@ namespace PDI_2022
         private System.Windows.Forms.ToolStripMenuItem verticalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem horizontalToolStripMenuItem;
         private System.Windows.Forms.CheckBox destinoCheckBox;
+        private System.Windows.Forms.ToolStripMenuItem halfToneToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem halfTone1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem halfTone2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem gToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bToolStripMenuItem1;
     }
 }
 

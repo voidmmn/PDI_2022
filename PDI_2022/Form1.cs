@@ -12,13 +12,26 @@ namespace PDI_2022
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        /// Enumerador dos canais RGB
+        /// </summary>
+        public enum Canal
+        {
+            /// <summary>
+            /// Vermelho
+            /// </summary>
+            R,
+            G,
+            B
+        }
+
         public Bitmap imgOriginal;
         public Bitmap imgDestino;
 
         public Form1()
         {
             InitializeComponent();
-            imgDestino = new Bitmap(origemPictureBox.Width, origemPictureBox.Height);
+            imgDestino = new Bitmap(origemPictureBox.Width, origemPictureBox.Height);            
         }
 
         private void copiarButton_Click(object sender, EventArgs e)
@@ -279,6 +292,128 @@ namespace PDI_2022
             }
 
             destinoPictureBox.Image = destino;
+        }
+
+        private void rToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HalfTone1(Canal.R);
+        }
+
+        private void gToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HalfTone1(Canal.G);
+        }
+
+        private void bToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HalfTone1(Canal.B);
+        }
+
+        private void HalfTone1(Canal canal)
+        {
+            Bitmap origem = new Bitmap(origemPictureBox.Image);
+
+            if (destinoCheckBox.Checked)
+                origem = new Bitmap(destinoPictureBox.Image);
+
+            Bitmap destino = new Bitmap(origemPictureBox.Image.Width, origemPictureBox.Image.Height);
+            Color pixel;
+            Color pixelHalfTone;
+            int cor;
+
+            for (int y = 0; y < origemPictureBox.Image.Height; y++)
+            {
+                for (int x = 0; x < origemPictureBox.Image.Width; x++)
+                {
+                    pixel = origem.GetPixel(x, y);
+
+                    switch (canal)
+                    {
+                        case Canal.R:
+                            cor = (pixel.R > 127) ? 255 : 0;
+                            break;
+                        case Canal.G:
+                            cor = (pixel.G > 127) ? 255 : 0;
+                            break;
+                        case Canal.B:
+                            cor = (pixel.B > 127) ? 255 : 0;
+                            break;
+                        default:
+                            cor = (pixel.R > 127) ? 255 : 0;
+                            break;
+                    }
+
+                    pixelHalfTone = Color.FromArgb(cor, cor, cor);
+                    destino.SetPixel(x, y, pixelHalfTone);
+                }
+            }
+
+            destinoPictureBox.Image = destino;
+        }
+
+        private void HalfTone2(Canal canal)
+        {
+            Bitmap origem = new Bitmap(origemPictureBox.Image);
+
+            if (destinoCheckBox.Checked)
+                origem = new Bitmap(destinoPictureBox.Image);
+
+            Bitmap destino = new Bitmap(origemPictureBox.Image.Width, origemPictureBox.Image.Height);
+            Color pixel;
+            Color vizinho1;
+            Color vizinho2;
+            Color vizinho3;
+            Color vizinho4;
+            Color pixelHalfTone;
+            int cor;
+
+            for (int y = 1; y < origemPictureBox.Image.Height - 1; y++)
+            {
+                for (int x = 1; x < origemPictureBox.Image.Width - 1; x++)
+                {
+                    pixel = origem.GetPixel(x, y);
+                    vizinho1 = origem.GetPixel(x-1, y);
+                    vizinho2 = origem.GetPixel(x+1, y);
+                    vizinho3 = origem.GetPixel(x, y-1);
+                    vizinho4 = origem.GetPixel(x, y+1);
+
+                    switch (canal)
+                    {
+                        case Canal.R:
+                            cor = (pixel.R + vizinho1.R + vizinho2.R + vizinho3.R + vizinho4.R > 127 * 5) ? 255 : 0;
+                            break;
+                        case Canal.G:
+                            cor = (pixel.G + vizinho1.G + vizinho2.G + vizinho3.G + vizinho4.G > 127 * 5) ? 255 : 0;
+                            break;
+                        case Canal.B:
+                            cor = (pixel.B + vizinho1.R + vizinho2.B + vizinho3.B + vizinho4.B > 127 * 5) ? 255 : 0;
+                            break;
+                        default:
+                            cor = (pixel.R > 127) ? 255 : 0;
+                            break;
+                    }
+
+                    pixelHalfTone = Color.FromArgb(cor, cor, cor);
+                    destino.SetPixel(x, y, pixelHalfTone);
+                }
+            }
+
+            destinoPictureBox.Image = destino;
+        }
+
+        private void rToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            HalfTone2(Canal.R);
+        }
+
+        private void gToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            HalfTone2(Canal.G);
+        }
+
+        private void bToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            HalfTone2(Canal.B);
         }
     }
 }
